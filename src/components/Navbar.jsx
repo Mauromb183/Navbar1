@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 
+const test=()=>(console.log("test"));
+
 function Navbar() {
     const [sidebar,setSidebar]=useState(false);
     const showSidebar=()=>setSidebar(!sidebar);
@@ -14,7 +16,7 @@ function Navbar() {
         <IconContext.Provider value={{color:'#fff'}}>
         <div className="navbar">
             <NavLink to="#" className="menu-bars" >
-                <FaIcons.FaBars onClick={showSidebar}/>
+                <FaIcons.FaBars onClick={()=>{showSidebar();test();}}/>
                 
                 </NavLink>
         </div>
