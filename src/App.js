@@ -1,56 +1,36 @@
 import React, { Component } from 'react';
 import {render} from 'react-dom';
-import {BrowserRouter as Router,Route,Link,Routes,NavLink } from 'react-router-dom';
+import {BrowserRouter as Router,Route,Link,Routes,NavLink,Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import Query from './components/Query';
+import Navbar from './components/Navbar';
+import './App.css';
 /*import Button from 'react-bootstrap/Button';*/
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import styled from 'styled-components';
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { string } from 'prop-types';
 
-const Button=styled.button`background-color:#3949ab;padding:1em;color:white`;
+//const Button=styled.button`background-color:#3949ab;padding:1em;color:white`;
 
 
-
+const Header=({title})=>{
+return(<div>{title} </div>);}
 
 function App(props) {
 
  return (
-   
+ 
 <Router>
-    <div ClassName="container">
 
-    <h1>Navbar... </h1>
-    <Query />
+<Navbar/>
 
-
-    <div ClassName="btn-group">
-  
-
-<NavLink to="/" >
-<Button>
-   Inicio
-   </Button>
-    </NavLink>
-<NavLink to="/contact">
-      <Button>
-         {props.title}</Button>
-</NavLink>
-    
-    <Routes>
-    <Route exact path="/" element={<Home/>}/>
+<Routes>
+    <Route exact path="/"/>
     <Route exact path="/contact" element={<Contact title="algo"/>}/>
-
-        
-      
     </Routes>
-    </div>
-    <script
-  src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
-  ></script>
-  
-</div>
+
 
 </Router>
 
@@ -61,6 +41,15 @@ function App(props) {
  Home.defaultProps={
   title:"perro" 
 }
-export default App;
- 
 
+
+
+Header.defaultProps={
+title:"Bienvenido!!"
+
+}
+
+export default App;
+ /*
+const superStyle={backgroundColor:"#000",color:"white"}
+*/

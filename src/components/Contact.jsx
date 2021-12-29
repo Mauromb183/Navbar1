@@ -1,4 +1,5 @@
 import React from "react";
+import List from "./List";
 
 const clickme=()=>{
 
@@ -14,6 +15,7 @@ return(
 <div>
 <div>Estas en contacto {props.title}!!</div>
 
+<List />
 <button onClick={clickme}>
 
     ok
